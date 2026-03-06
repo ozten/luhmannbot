@@ -110,6 +110,18 @@ The full loop:
 /health  (verify the fix)
 ```
 
+## Example: ingesting PRDs into a second brain
+
+When you have source documents (PRDs, specs, research) that need to be extracted into your knowledge system, chain `/architect` → manual integration → `/health`:
+
+```
+I have 3 new PRDs in ~/cantrip/prd/. Run /architect on my second brain at
+~/cantrip/docs/isc to figure out where this new knowledge should land, then
+integrate it, then /health to validate.
+```
+
+`/architect` reads both the existing vault and the source documents, then proposes which notes to create vs. update — with research justification for each structural decision. You approve the plan, the agent does the extraction, and `/health` validates nothing broke.
+
 ## The pattern
 
 Luhmannbot demonstrates a general pattern: **role repos**. Instead of loading every plugin into one project, you create small repos that each configure Claude Code for a specific role. Each role repo has:
